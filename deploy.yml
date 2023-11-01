@@ -7,4 +7,4 @@
     - name: Copy file with owner and permissions
       copy:
         src: /root/test.txt
-        dest: /admin/home/test.txt
+        dest: /root/test.txt
