@@ -1,21 +1,10 @@
 ---
-- name: "Apache installation using docker"
+- name: "Copier un ficher vers machines distantes"
   hosts: prod
   become: true
-  #vars_files:
-    #- files/secrets/credentials.yml
-  pre_tasks:
-    - name: Install EPEL repo
-      package: name=epel-release state=present
-      when: ansible_distribution == "CentOS"
-    - name: install python-pip
-      yum: name=python-pip state=present update_cache=yes
-    - name: Install docker python
-      pip: name=docker-py
+
   tasks:
-    - name: Create Apache container
-      docker_container:
-        name: webapp
-        image: httpd
-        ports:
-          - "80:80"
+    - name: Copy file with owner and permissions
+      copy:
+        src: /home/admin/test.txt
+        dest: /admin/home/test.txt
