@@ -5,6 +5,5 @@
 
   tasks:
     - name: Copy file with owner and permissions
-      copy:
-        src: /root/test.txt
-        dest: /root/test.txt
+      ping:
+        
